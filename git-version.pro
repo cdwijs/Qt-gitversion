@@ -47,7 +47,7 @@ win32: CONFIG+= console
 
 #DEFINES += MY_DEFINE=""FOO_BAR""
 #git version: https://bitbucket.org/mkarlsso/trodes/src/72c877d43e383ba7daf6e50a634b7cca61f79abd/Modules/SimpleCommunicator/SimpleCommunicator.pro?at=master&fileviewer=file-view-default
-GIT_COMMAND = git  describe --always --all --tags --dirty --long
+GIT_COMMAND = git  describe --always --all --tags --dirty --long --abbrev=40
 
 #must not contain spaces
 GIT_COMMIT = $$system($$GIT_COMMAND)
