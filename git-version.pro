@@ -53,7 +53,12 @@ GIT_COMMAND = git  describe --always --all --tags --dirty --long
 GIT_COMMIT = $$system($$GIT_COMMAND)
 DEFINES += GIT_COMMIT=\\\"$$GIT_COMMIT\\\"
 
-
+#force Qmake to always run: https://stackoverflow.com/questions/12873437/force-qtcreator-to-run-qmake-when-building
+qmakeforce.target = dummy
+qmakeforce.commands = $$QMAKE_DEL_FILE Makefile ##to force rerun of qmake
+qmakeforce.depends = FORCE
+PRE_TARGETDEPS += $$qmakeforce.target
+QMAKE_EXTRA_TARGETS += qmakeforce
 
 
 #show the value of all defines: https://forum.qt.io/topic/82531/defines-in-qt-creator/9
