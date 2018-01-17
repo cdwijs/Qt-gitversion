@@ -32,3 +32,29 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui
+
+#add a console window for debugging: https://stackoverflow.com/questions/40089148/how-the-outputs-in-qt-works
+win32: CONFIG+= console
+
+#add build date and time :http://www.qtforum.org/article/25886/build-date-in-the-about-box-solved.html (does not work)
+#win32 {
+#DEFINES += BUILDTIME=\\\""$$system('echo %time%')\\\""
+#DEFINES += BUILDDATE=\\\""$$system('echo %date%')\\\""
+#} else {
+#DEFINES += BUILDTIME=\\\"$$system(date '+%H:%M.%s')\\\"
+#DEFINES += BUILDDATE=\\\"$$system(date '+%d/%m/%y')\\\"
+#}
+
+#DEFINES += MY_DEFINE=""FOO_BAR""
+#git version: https://bitbucket.org/mkarlsso/trodes/src/72c877d43e383ba7daf6e50a634b7cca61f79abd/Modules/SimpleCommunicator/SimpleCommunicator.pro?at=master&fileviewer=file-view-default
+GIT_COMMAND = git  describe --always --all --tags --dirty --long
+
+#must not contain spaces
+GIT_COMMIT = $$system($$GIT_COMMAND)
+DEFINES += GIT_COMMIT=\\\"$$GIT_COMMIT\\\"
+
+
+
+
+#show the value of all defines: https://forum.qt.io/topic/82531/defines-in-qt-creator/9
+message($$DEFINES)
