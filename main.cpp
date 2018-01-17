@@ -8,14 +8,8 @@ int main(int argc, char *argv[])
     MainWindow w;
 
     QString git=GIT_COMMIT;
-    qDebug() << git;
-
-//    QString date=BUILDDATE;
-//    QString time=BUILDTIME;
-//    QString mydefine(MY_DEFINE);
-//    qDebug() << date;
-//    qDebug() << time;
-//    qDebug() << mydefine;
+    qDebug() << "Git version:" << git;
+    qDebug() << "Build on:" << __DATE__ << __TIME__;
 
     w.show();
 
