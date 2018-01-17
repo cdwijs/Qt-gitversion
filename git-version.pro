@@ -55,7 +55,7 @@ DEFINES += GIT_COMMIT=\\\"$$GIT_COMMIT\\\"
 
 #force Qmake to always run: https://stackoverflow.com/questions/12873437/force-qtcreator-to-run-qmake-when-building
 qmakeforce.target = dummy
-qmakeforce.commands = $$QMAKE_DEL_FILE Makefile ##to force rerun of qmake
+qmakeforce.commands = $$QMAKE_DEL_FILE debug\main.o Makefile ##to force rerun of qmake
 qmakeforce.depends = FORCE
 PRE_TARGETDEPS += $$qmakeforce.target
 QMAKE_EXTRA_TARGETS += qmakeforce
